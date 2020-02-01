@@ -10,6 +10,17 @@ Class {
 	#category : #Zuul
 }
 
+{ #category : #comparing }
+ZuulCredential >> <= aCredential [
+	^  title asLowercase <= aCredential title asLowercase 
+]
+
+{ #category : #'as yet unclassified' }
+ZuulCredential >> displayTitle [
+	^ title ifEmpty: [ 
+		'New Entry' ]
+]
+
 { #category : #accessing }
 ZuulCredential >> id [
 	^ id
@@ -18,7 +29,10 @@ ZuulCredential >> id [
 { #category : #initialization }
 ZuulCredential >> initialize [ 
 	super initialize.
-	id := UUID new asString36
+	id := UUID new asString36.
+	title := ''.
+	user := ''.
+	passphrase := ''.
 ]
 
 { #category : #accessing }

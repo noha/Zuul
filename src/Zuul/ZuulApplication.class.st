@@ -2,7 +2,8 @@ Class {
 	#name : #ZuulApplication,
 	#superclass : #SpApplication,
 	#instVars : [
-		'credentialsStore'
+		'credentialsStore',
+		'cryptoKey'
 	],
 	#classInstVars : [
 		'instance'
@@ -34,6 +35,11 @@ ZuulApplication class >> open [
 	self instance openWithSpec
 ]
 
+{ #category : #'as yet unclassified' }
+ZuulApplication >> allCredentials [
+	^  self credentialsStore allCredentialsWithKey: self cryptoKey 
+]
+
 { #category : #accessing }
 ZuulApplication >> credentialsStore [
 	^ credentialsStore ifNil: [ 
@@ -41,6 +47,22 @@ ZuulApplication >> credentialsStore [
 ]
 
 { #category : #storing }
-ZuulApplication >> store: aCredential [ 
-	self credentialsStore storeCredentials: aCredential
+ZuulApplication >> cryptoKey [
+	^ cryptoKey ifNil: [ 
+		cryptoKey := 'foobar123' ]
+]
+
+{ #category : #'as yet unclassified' }
+ZuulApplication >> removeCredentials: aZuulCredential [ 
+	self credentialsStore removeCredentials: aZuulCredential 
+]
+
+{ #category : #'as yet unclassified' }
+ZuulApplication >> setCryptoKey: aString [ 
+	cryptoKey := aString
+]
+
+{ #category : #storing }
+ZuulApplication >> storeCredential: aCredential [ 
+	self credentialsStore writeCredentials: aCredential key: self cryptoKey.
 ]

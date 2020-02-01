@@ -1,5 +1,5 @@
 Class {
-	#name : #ZuulTable,
+	#name : #ZuulTablePresenter,
 	#superclass : #SpPresenter,
 	#instVars : [
 		'table'
@@ -8,19 +8,19 @@ Class {
 }
 
 { #category : #specs }
-ZuulTable class >> defaultSpec [
+ZuulTablePresenter class >> defaultSpec [
     ^ SpBoxLayout newVertical
         add: #table;
         yourself
 ]
 
 { #category : #adding }
-ZuulTable >> addCredentials: aCredentials [
+ZuulTablePresenter >> addCredentials: aCredentials [
 	table model add: aCredentials 
 ]
 
 { #category : #initialization }
-ZuulTable >> initializeWidgets [
+ZuulTablePresenter >> initializeWidgets [
 	table := self newTable.
 	table
 		addColumn:
