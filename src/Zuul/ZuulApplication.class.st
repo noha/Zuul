@@ -37,7 +37,8 @@ ZuulApplication class >> open [
 
 { #category : #'as yet unclassified' }
 ZuulApplication >> allCredentials [
-	^  self credentialsStore allCredentialsWithKey: self cryptoKey 
+	^  (self credentialsStore allCredentialsWithKey: self cryptoKey) ifEmpty: [ 
+		Array with: ZuulCredential new ]
 ]
 
 { #category : #accessing }
