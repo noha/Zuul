@@ -32,20 +32,16 @@ ZuulCredentialsStoreTest >> setUp [
 ]
 
 { #category : #tests }
-ZuulCredentialsStoreTest >> testLoadAllCredentials [
-	
-]
-
-{ #category : #tests }
 ZuulCredentialsStoreTest >> testLoadAllCredentialsDifferentKey [
-	| c1 c2 credentials |
+	| c1 c2 |
 	c1 := self dummyCredentials.
 	store writeCredentials: c1 key: 'foobar'. 
 	c2 := self dummyCredentials2.
 	store writeCredentials: c2 key: 'barfoo'.
 	
-	credentials := store allCredentialsWithKey: 'foobar'.
-	self assert: credentials size equals: 1
+	self assert: (store allCredentialsWithKey: 'foobar') size equals: 1.
+	self assert: (store allCredentialsWithKey: 'barfoo') size equals: 1
+
 
 ]
 
