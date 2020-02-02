@@ -27,7 +27,9 @@ ZuulUI class >> open [
 
 { #category : #accessing }
 ZuulUI >> addCredentials [
-	list model add: ZuulCredential new
+	credential := ZuulCredential new.
+	list model add: credential.
+	list selectItem: credential 
 ]
 
 { #category : #'as yet unclassified' }
