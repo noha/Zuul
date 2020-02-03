@@ -12,10 +12,11 @@ BaselineOfZuul >> baseline: spec [
 		self cryptography: spec.
 		spec 
 			package: 'Zuul' with: [
-				spec requires: #('Mars' 'Cryptography' ) ].
+				spec requires: #( 'Cryptography' ) ].
 			
 		spec 
-			group: 'default' with: #('Zuul') ]
+			group: 'default' with: #('Zuul');
+			group: 'full' with: #('Mars' 'Zuul') ]
 ]
 
 { #category : #'as yet unclassified' }
