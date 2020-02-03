@@ -1,0 +1,2 @@
+dist:
+	echo "works"
