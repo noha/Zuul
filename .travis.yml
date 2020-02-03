@@ -1,0 +1,23 @@
+matrix:
+  include:
+    - language: smalltalk
+      os:
+        - linux
+      smalltalk:
+        - Pharo64-8.0
+
+    - language: c
+      addons:
+        apt:
+          packages:
+          - make
+          - git
+          - libgtk-3-0
+
+      install:
+        - "make dist"
+
+      script:
+        - echo " "
+
+
