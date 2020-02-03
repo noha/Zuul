@@ -8,9 +8,21 @@ Class {
 BaselineOfZuul >> baseline: spec [
 	<baseline>
 	spec for: #'common' do: [
+		self cryptography: spec.
 		spec 
-			package: 'Zuul'.
+			package: 'Zuul' with: [
+				spec requires: #( 'Cryptography' ) ].
 			
 		spec 
 			group: 'default' with: #('Zuul') ]
+]
+
+{ #category : #'as yet unclassified' }
+BaselineOfZuul >> cryptography: spec [
+"git@github.com:pharo-contributions/Cryptography.git"
+
+	spec baseline: 'Cryptography' with: [ 
+		spec 
+			repository: 'github://pharo-contributions/Cryptography/source';
+			loads: #( 'Cryptography') ]
 ]
