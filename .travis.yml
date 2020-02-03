@@ -24,5 +24,4 @@ matrix:
       file: "./release.zip"
       skip_cleanup: true
       on:
-        tags: true
         repo: noha/Zuul
