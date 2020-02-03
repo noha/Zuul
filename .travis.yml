@@ -1,23 +1,28 @@
 matrix:
   include:
-    - language: smalltalk
-      os:
-        - linux
-      smalltalk:
-        - Pharo64-8.0
-
-    - language: c
-      addons:
-        apt:
-          packages:
-          - make
-          - git
-          - libgtk-3-0
-
-      install:
-        - "make dist"
-
-      script:
-        - echo " "
-
-
+  - language: smalltalk
+    os:
+    - linux
+    smalltalk:
+    - Pharo64-8.0
+  - language: c
+    addons:
+      apt:
+        packages:
+        - make
+        - git
+        - libgtk-3-0
+    install:
+    - make dist
+    script:
+    - echo " "
+deploy:
+  provider: releases
+  api_key:
+    secure: sTDigXbky/CnUdlzhUJDLv7p/P95x5O2LrjCtI9Ch2LoA/S/X7mPNyKjB2EBE+Uz8fqqeH9HpuVUlZwNvlFbrlYnBfP461XAq/g4mtqGH3qJTCwfLdjfB7j24wIf3DnxW9UOyDeqIBhKAW1JvEAnGna7iSNdBb6xakC6K0CHJzzLVM8RQKxL8lWDixE6r6XfjEP2bhj0Gf7fXLyGuF+CpOPobj88eWV3zwvtNQ/S6jBFpLfwW0mG+20dtI1MCL+V8LInvmIR9U/wQcv1iEDO3x2V7wI/rUpKxDTjeyfcoYK3rnZ9npbVnT1Wr3gDBgdFJoam3pFQDEwFfVxbKwnBbWBzimWePdktEVujEag5ej3PJUfaRc2bZW3br8NkEBHINfnOId5xRdi5QCvQVis/n2S29+rDCdORmLwzycp6bnsVjHT8PN0280Vb6cADBTsXkKx+9tRcO04RGjCwEX5hVmj5RCFr9+d4FGp1s3qwNFfEfhWvad3m59QktYcWYYS6PwNbRFuzuQyLOhMyTwbP6bbU1Vb5qSuM8hGOmwRWrozliSzwVeGF5DZMmO0m/rZXhr7Yt8ftlBNms4glv0NC/8IEk3Lm/KBFg7c00mpmmtHj75CWtRQJPJ5q1w38aQjK9hjhyYT+8uVT6QkcLngXvxCFIPtZg7oOGaZPJ35qmJ8=
+  file_glob: true
+  file: dist/release.zip
+  skip_cleanup: true
+  on:
+    tags: true
+    repo: noha/Zuul
