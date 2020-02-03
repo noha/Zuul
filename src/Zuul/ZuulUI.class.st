@@ -12,7 +12,7 @@ Class {
 { #category : #specs }
 ZuulUI class >> defaultSpec [
     ^ SpBoxLayout newVertical
-       add: #toolbar withConstraints: [ :constraints | constraints height: self toolbarHeight ];
+       add: #toolbar expand: false;
        add: (SpBoxLayout newHorizontal 
 			add: #list;
 			add: #credential);

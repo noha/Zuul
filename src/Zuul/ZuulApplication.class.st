@@ -53,6 +53,12 @@ ZuulApplication >> cryptoKey [
 		cryptoKey := 'foobar123' ]
 ]
 
+{ #category : #initialization }
+ZuulApplication >> initialize [ 
+	super initialize.
+	self useBackend: #Gtk with: ZuulConfiguration new
+]
+
 { #category : #'as yet unclassified' }
 ZuulApplication >> removeCredentials: aZuulCredential [ 
 	self credentialsStore removeCredentials: aZuulCredential 
@@ -61,6 +67,15 @@ ZuulApplication >> removeCredentials: aZuulCredential [
 { #category : #'as yet unclassified' }
 ZuulApplication >> setCryptoKey: aString [ 
 	cryptoKey := aString
+]
+
+{ #category : #running }
+ZuulApplication >> start [ 
+	| window |
+	window := (self new: ZuulUI) openWithSpec.
+	window 
+		title: 'Zuul';
+		aboutText: 'This is about Zuul'
 ]
 
 { #category : #storing }
