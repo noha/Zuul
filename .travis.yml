@@ -24,3 +24,4 @@ deploy:
   file: "./release.zip"
   on:
     repo: noha/Zuul
+    language: C
