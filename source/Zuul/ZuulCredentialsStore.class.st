@@ -45,7 +45,7 @@ ZuulCredentialsStore >> encrypt: aString key: key [
 { #category : #accessing }
 ZuulCredentialsStore >> path: aFileReference [ 
 	
-	path := aFileReference.
+	path := Smalltalk imageDirectory / aFileReference.
 	path ensureCreateDirectory 
 ]
 

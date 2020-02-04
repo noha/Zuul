@@ -19,7 +19,6 @@ BaselineOfZuul >> baseline: spec [
 
 { #category : #'as yet unclassified' }
 BaselineOfZuul >> cryptography: spec [
-"git@github.com:pharo-contributions/Cryptography.git"
 
 	spec baseline: 'Cryptography' with: [ 
 		spec 
