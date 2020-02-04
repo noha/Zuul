@@ -25,3 +25,4 @@ deploy:
   on:
     repo: noha/Zuul
     language: C
+    tags: true
