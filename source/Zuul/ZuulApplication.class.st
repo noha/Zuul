@@ -44,7 +44,7 @@ ZuulApplication >> allCredentials [
 { #category : #accessing }
 ZuulApplication >> credentialsStore [
 	^ credentialsStore ifNil: [ 
-		credentialsStore := ZuulCredentialsStore path: 'data' ]
+		credentialsStore := ZuulCredentialsStore path: 'data' asFileReference ]
 ]
 
 { #category : #storing }
