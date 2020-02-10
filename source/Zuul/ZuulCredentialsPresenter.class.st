@@ -12,7 +12,8 @@ Class {
 		'okButton',
 		'saveBlock',
 		'userCopy',
-		'passphraseCopy'
+		'passphraseCopy',
+		'passphraseVisible'
 	],
 	#category : #Zuul
 }
@@ -31,6 +32,7 @@ ZuulCredentialsPresenter class >> defaultSpec [
 		add: #passphraseLabel expand: false fill: false padding: 15;
 		add: (SpBoxLayout newHorizontal 
 			add: #passphrase;
+			add: #passphraseVisible expand: false;
 			add: #passphraseCopy expand: false) expand: false fill: false padding: 15;
 		add: #okButton expand: false fill: false padding: 15;
 		yourself
@@ -76,6 +78,9 @@ ZuulCredentialsPresenter >> initializeWidgets [
 		placeholder: 'Enter the passphrase';
 		autoAccept: true;
 		whenTextChangedDo: [  self checkIfModified ].
+	passphraseVisible := self newButton 
+		icon: (self iconNamed: #string);
+		action: [ passphrase beText . [ passphrase bePassword ] valueAfterWaiting: 10 seconds ].
 	passphraseCopy := self newButton 
 		icon: (self iconNamed: #smallCopy);
 		action: [ Clipboard clipboardText: passphrase text ].
